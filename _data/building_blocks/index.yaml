@@ -5,7 +5,7 @@
   sortcat: A1
   name: Inline Token Generator
   description: Allowing developers to request token inline with documentation.
-  image: ''
+  image: '' 
   tags: Authentication
 - building_block_id: authentication-overview
   type: Authentication

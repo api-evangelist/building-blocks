@@ -44,6 +44,7 @@ title: API Evangelist - Definitions
 <a name="BuildingBlocks"></a>
 {% assign building_block_content = site.data.building_block_content.index[0] %}
 {% assign building_blocks = site.data.building_blocks.index %}
+{% assign typelist = '' %}
 {% assign categorylist = '' %}
 {% for block in building_blocks %}
 	{% assign category = block.category %}
@@ -54,6 +55,14 @@ title: API Evangelist - Definitions
 		{% endif %}
 		{% assign categorylist = categorylist | append: category %}
 	{% endif %}
+	{% assign type = block.type %}
+	{% if typelist contains type %}
+	{% else %}
+		{% if typelist != '' %}
+			{% assign typelist = typelist | append:',' %}
+		{% endif %}
+		{% assign typelist = typelist | append: type %}
+	{% endif %}
 {% endfor %}
 <section id="banner">
 	<div class="content">
@@ -61,6 +70,8 @@ title: API Evangelist - Definitions
 			<h2>{{ building_block_content.title }}</h2>
 			<p>{{ building_block_content.header }}</p>
 		</header>
+		{% assign categoryArray = categorylist | split: "," %}
+		{% for category in categoryArray %}
 		<ul style="padding: 0px 25px 0px 25px;">
 			{% assign categoryArray = categorylist | split: "," %}
 			{% for category in categoryArray %}
