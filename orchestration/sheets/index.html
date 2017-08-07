@@ -77,11 +77,11 @@ title: Update Spreadsheet
 
               $.each(tree, function(treeKey, treeValue) {
 
-                $writepath = '_data/building-blocks.yaml';
-
+                $writepath = '_data/building_blocks/index.yaml';
+                //console.log($writepath);
                 $path = treeValue['path'];
                 $sha = treeValue['sha'];
-
+                //console.log($path + ' == ' + $writepath);
                 if($path==$writepath)
                   {
                   repo.writemanual('master',$writepath, $yaml_dump, 'Save', $sha, function(err) { });
